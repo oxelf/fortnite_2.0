@@ -83,11 +83,14 @@ client.friends.friendsList;
 ## What you can do with the package
 Events:
 |Function          | Description                           |
-|------------------|---------------------------------------|
-|events            |Returns a list of events for the season|
-|getEventHistory   |Returns a list with the results for the event from the authenticated player.|
+|---------|------------------------------------------------|
+|events   |Returns a list of events for the season|
+|tokens   |A List of tokens the player has. Tokens are granted when you reach a new division in arena or when you unlock a new event.|           
+|getEventHistory|Returns a list with the results for the event from the authenticated player.|
 |getEventWindowHistory|Returns the result for the eventWindow from the authenticated player.|
-|getEventFlags     |Returns eventFlags                      |
+|getEventFlags|Returns eventFlags(Dont really know what this is used for.)|
+
+
 You can access Events Functions like this: 
 ```dart
 client.events.init();
@@ -104,9 +107,11 @@ Friends:
 |decline           |Decline friend request by using account Id              |
 |block             |Block friend using his account Id                       |
 |unblock           |Unblock friend using his account Id                     |
+|set Nickname      |Set a Friend nickname using his account Id              |
 |remove Nickname   |Remove a nickname of a friend using his account Id      |
 |get Mutuals       |Returns the friends that you and a friend have in common|  
-|------------------|--------------------------------------------------------|
+
+
 You can access Friends Functions like this: 
 ```dart
 client.friends.init();
@@ -134,7 +139,8 @@ Commoncore:
 |current mtx platform|The current vbucks platform.                               |
 |setMTXPlatform    |Set the Vbucks platform.                                     |
 |supportedCreatorId|The account Id of the supported Creator.                     |
-|------------------|-------------------------------------------------------------|
+
+
 You can access Commoncore Functions like this: 
 ```dart
 client.commonCore.init();
@@ -163,7 +169,8 @@ Athena:
 |lastMatch         |The Date when the last match ended.                     |
 |seasonNumber      |The number of the current Season.                       |
 |storefront        |The complete Store(bundles, skins, vbucks offers ...)   |
-|------------------|--------------------------------------------------------|
+
+
 You can access Athena Functions like this: 
 ```dart
 client.athena.init();

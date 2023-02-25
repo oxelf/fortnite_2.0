@@ -262,6 +262,19 @@ class Client {
         overrideToken: overrideToken,
       );
 
+  /// put request to [url] with [body].
+  Future<dynamic> put(
+    String url,
+    dynamic body,
+    String? overrideToken,
+  ) async =>
+      await send(
+        method: "PUT",
+        url: url,
+        body: body,
+        overrideToken: overrideToken,
+      );
+
   /// returns the avatar of the given account ids
   Future<List<Avatar>> getAvatars(List<String> accountIds) async {
     List<Avatar> avatars = [];
