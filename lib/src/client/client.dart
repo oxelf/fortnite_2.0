@@ -1,10 +1,12 @@
 import "dart:async";
+import 'package:fortnite/resources/mcp_operations.dart';
 import "package:fortnite/src/client/events.dart";
 import "package:fortnite/src/client/friends.dart";
 import "package:fortnite/src/client/partys.dart";
 import "package:fortnite/src/structures/party_intention.dart";
 import "package:fortnite/src/structures/ping_sent.dart";
 import "package:logging/logging.dart";
+import '../../resources/fortnite_profile_ids.dart';
 import "http.dart";
 import "auth.dart";
 import "athena_profile.dart";
@@ -392,5 +394,27 @@ class Client {
     } else {
       return response;
     }
+  }
+
+  Future<dynamic> purchaseItem(
+    String offerId,
+  ) async {
+    var result = await send(
+      method: "POST",
+      url: MCP(
+        FortniteProfile.common_core,
+        accountId: accountId,
+      ).PurchaseCatalogEntry,
+      body: {
+        "offerId":
+            "v2:/ca84387104df2144a0283f37e23832efe818e5db621572c5f63236f8bc4f3f83",
+        "purchaseQuantity": 1, // How often you want to purchase the offer
+        "currency": "MtxCurrency", // From offer
+        "currencySubType": "", // From offer
+        "expectedTotalPrice": 800, // Calculate it
+        "gameContext": "" // Leave Like this or use an Empty String
+      },
+    );
+    print(result);
   }
 }

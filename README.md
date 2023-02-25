@@ -81,15 +81,93 @@ client.friends.friendsList;
 ```
 
 ## What you can do with the package
+Events:
+|Function          | Description                           |
+|------------------|---------------------------------------|
+|events            |Returns a list of events for the season|
+|getEventHistory   |Returns a list with the results for the event from the authenticated player.|
+|getEventWindowHistory|Returns the result for the eventWindow from the authenticated player.|
+|getEventFlags     |Returns eventFlags                      |
+You can access Events Functions like this: 
+```dart
+client.events.init();
+client.events.events;
+```                              
+Friends: 
+|Function          | Description                                            |
+|------------------|--------------------------------------------------------|
+|friendsList       |The list of friends for the authenticated player        |
+|blockList         |The list of blocked friends for the authenticated player|
+|add               |Add a Friend using his account Id                       |
+|delete            |Delete a Friend using his account Id                    |
+|accept            |Accept friend request by using account Id               |
+|decline           |Decline friend request by using account Id              |
+|block             |Block friend using his account Id                       |
+|unblock           |Unblock friend using his account Id                     |
+|remove Nickname   |Remove a nickname of a friend using his account Id      |
+|get Mutuals       |Returns the friends that you and a friend have in common|  
+|------------------|--------------------------------------------------------|
+You can access Friends Functions like this: 
+```dart
+client.friends.init();
+client.friends.friendsList;
+```
 
-|Function          |profile    | Description                           |param                                                                |
-|------------------|-----------|---------------------------------------|---------------------------------------------------------------------|
-|findPlayers       |client     |Returns a list of similar player names.|String prefix = the playername you want to get similar results for.  |
-|getAvatars        |client     |Returns a list of avatar urls.         |List accountIds = the list of accountIds you want to get avatars for.|
-|refreshSession    |client     |Creates a new oauth token.             |no parameters.                                                       |
-|confirmInitialized|every      |Returns true if the profile is init.   |no parameters.                                                       |
-|getEventHistory   |events     |Returns results for authenticated      |String eventId = the eventId for event to query.                     |
-                               |players sessions for the eventId.      |
-|
+Commoncore:
+|Function          | Description                                                 |
+|------------------|-------------------------------------------------------------|
+|accountId         |The accountId of the authenticated Player.                   |
+|created           |Date when the Epic Account was created.                      |
+|servertime        |The time of the server that is used for the account.         |
+|Campaign access   |Returns true if the player has STW.                          |
+|supported creator |The creator currently supported by the user.                 |
+|total Vbucks      |The amount of Vbucks the player has in the moment.           |
+|Vbucks purchased  |The amount of vbucks bought since creating the account.      |
+|Vbucks Breakdown  |Breakdown of the vbucks that you currently have.             |
+|gift History      |Returns account Ids that send and received gifts from player.|
+|affiliate settime |Returns the date when the affiliate was set.                 |
+|refundToken       |The amount of refund Tokens left for the user.               |
+|refundsUsed       |How much refunds were used since creation of the account.    |
+|allowedToSentGifts|Returns true if the user is allowed to sent gifts.           |
+|allowedToReceiveGifts|Returns true if the user is allowed to receive gifts.     |
+|setSupportedCreator|Allows user to set a new creatorcode.                       |
+|current mtx platform|The current vbucks platform.                               |
+|setMTXPlatform    |Set the Vbucks platform.                                     |
+|supportedCreatorId|The account Id of the supported Creator.                     |
+|------------------|-------------------------------------------------------------|
+You can access Commoncore Functions like this: 
+```dart
+client.commonCore.init();
+client.commonCore.accountId;
+```
 
+Athena:
+|Function          | Description                                            |
+|------------------|--------------------------------------------------------|
+|skins             |List of skins the player owns.                          |
+|backpacks         |List of backpacks the player owns.                      |
+|pickaxes          |List of pickaxes the player owns.                       |
+|gliders           |List of gliders the player owns.                        |
+|dances            |List of dances the player owns.                         |
+|itemwraps         |List of wraps the player owns.                          |
+|loading screens   |List of loading screens the player owns.                |
+|music packs       |List of music packs the player owns.                    |
+|skydive contrails |List of skydive contrails the player owns.              |
+|equipped skin     |The skin currently used by the player.                  |
+|gold              |The amount of gold the player has in public.            |
+|accountlevel      |The accountlevel of the player.                         |
+|battlepass level  |The current battle pass level.                          |
+|battle Stars      |The amount of Battle Stars the player has.              |
+|total Battle Stars|The total amount of Battle Stars earned in the season.  |
+|battlePassPurchased|Returns true if the battle pass was purchased.         |
+|lastMatch         |The Date when the last match ended.                     |
+|seasonNumber      |The number of the current Season.                       |
+|storefront        |The complete Store(bundles, skins, vbucks offers ...)   |
+|------------------|--------------------------------------------------------|
+You can access Athena Functions like this: 
+```dart
+client.athena.init();
+client.athena.gold;
+```
 
+The package also offers alot of STW functions and resources, you can access them

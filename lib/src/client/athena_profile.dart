@@ -120,6 +120,15 @@ class AthenaProfile extends McpProfile {
     return gold;
   }
 
+  Future<dynamic> getStoreFront() async {
+    var res = await client.send(
+      method: "GET",
+      url: "${Endpoints().fortniteCatalog}",
+    );
+    print(res);
+    return res;
+  }
+
   /// get quests of the profile
   List<QuestItem> get quests => items.whereType<QuestItem>().toList();
 
@@ -208,7 +217,7 @@ class AthenaProfile extends McpProfile {
   num get battlestarsSeasonTotal => stats["battlestars_season_total"] ?? 0;
 
   /// is battle pass active
-  bool get isVIP => stats["book_purchased"] ?? false;
+  bool get battlePassPurchased => stats["book_purchased"] ?? false;
 
   /// creative afk tracker
   QuestItem get creativeAFKTracker => quests.firstWhere(

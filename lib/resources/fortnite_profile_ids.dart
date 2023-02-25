@@ -20,11 +20,17 @@ enum FortniteProfile {
   //events,
   events,
 
+  //creativ
+  creativ,
+
   /// save the world backpack profile
   theater0,
 
   /// save the world events backpack profile
   theater1,
+
+  //metadata
+  metadata,
 
   /// save the world ventures backpack profile
   theater2,

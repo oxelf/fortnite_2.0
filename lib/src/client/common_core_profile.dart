@@ -188,4 +188,20 @@ class CommonCoreProfile extends McpProfile {
   /// has campaign access
   bool get hasCampaignAccess =>
       items.where((i) => i.templateId == "Token:campaignaccess").isNotEmpty;
+
+  //Time when the affiliate was set
+  String get affiliateSetTime => stats["mtx_affiliate_set_time"];
+
+  //The gifthistory for the user.
+  Map get giftHistory => stats["gift_history"];
+
+  int get refundsUsed => stats["mtx_purchase_history"]["refundsUsed"];
+
+  int get refundToken => stats["mtx_purchase_history"]["refundCredits"];
+
+  bool get allowedToSentGifts => stats["allowed_to_send_gifts"];
+
+  bool get allowedToReceiveGifts => stats["allowed_to_receive_gifts"];
+
+  String get supportedCreatorId => stats["mtx_affiliate_id"];
 }

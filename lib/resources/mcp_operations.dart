@@ -63,6 +63,12 @@ class MCP {
       case FortniteProfile.events:
         profileId = "events";
         break;
+      case FortniteProfile.creativ:
+        profileId = "creativ";
+        break;
+      case FortniteProfile.metadata:
+        profileId = "metadata";
+        break;
     }
   }
 
