@@ -111,6 +111,57 @@ Friends:
 |remove Nickname   |Remove a nickname of a friend using his account Id      |
 |get Mutuals       |Returns the friends that you and a friend have in common|  
 
+<table>
+    <tr>
+        <td>Function</td>
+        <td>Description</td>
+    </tr>
+    <tr>
+        <td>friendsList</td>
+        <td>The list of friends for the authenticated player</td>
+    </tr>
+    <tr>
+        <td>blockList</td>
+        <td>The list of blocked friends for the authenticated player</td>
+    </tr>
+    <tr>
+        <td>add</td>
+        <td>Add a Friend using his account Id</td>
+    </tr>
+    <tr>
+        <td>delete</td>
+        <td>Delete a Friend using his account Id</td>
+    </tr>
+    <tr>
+        <td>accept</td>
+        <td>Accept friend request by using account Id</td>
+    </tr>
+    <tr>
+        <td>decline</td>
+        <td>Decline friend request by using account Id</td>
+    </tr>
+    <tr>
+        <td>block</td>
+        <td>Block friend using his account Id</td>
+    </tr>
+    <tr>
+        <td>unblock</td>
+        <td>Unblock friend using his account Id</td>
+    </tr>
+    <tr>
+        <td>set Nickname</td>
+        <td>Set a Friend nickname using his account Id</td>
+    </tr>
+    <tr>
+        <td>remove Nickname</td>
+        <td>Remove a nickname of a friend using his account Id</td>
+    </tr>
+    <tr>
+        <td>get Mutuals</td>
+        <td>Returns the friends that you and a friend have in common</td>
+    </tr>
+</table>
+
 
 You can access Friends Functions like this: 
 ```dart
