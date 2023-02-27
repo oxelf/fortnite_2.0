@@ -168,11 +168,11 @@ class Friends extends FriendsProfile {
     }
   }
 
-  Future<dynamic> setNickname(String friendId) async {
+  Future<dynamic> setNickname(String friendId, String nickName) async {
     var response = http.put(
       Uri.parse(
           "${EpicServices().friendService}/friends/api/v1/$accountId/friends/$friendId/alias"),
-      body: "test",
+      body: "$nickName",
       headers: {
         "User-Agent":
             "Fortnite/++Fortnite+Release-18.21-CL-17811397 Android/11",

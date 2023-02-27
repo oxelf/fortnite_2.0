@@ -170,11 +170,17 @@ Athena:
 |seasonNumber      |The number of the current Season.                       |
 |storefront        |The complete Store(bundles, skins, vbucks offers ...)   |
 
-
 You can access Athena Functions like this: 
 ```dart
 client.athena.init();
 client.athena.gold;
 ```
+
+Party(Almost every party function needs a party id, and because we dont have the fortnite xmpp implemented, we can only get it via the get invites function because the party id gets sent when someone invites you. Currently not possible to get the party id your currently in.): 
+|function | Description |
+|--------------|------------------------------------|
+|party invites |shows the invites you received.     |
+|promoteMember  |lets you promote Member to leader. |
+|party Lookup  |Get Information about a party.      |  
 
 The package also offers alot of STW functions and resources, you can access them

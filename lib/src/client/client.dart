@@ -2,7 +2,6 @@ import "dart:async";
 import 'package:fortnite/resources/mcp_operations.dart';
 import "package:fortnite/src/client/events.dart";
 import "package:fortnite/src/client/friends.dart";
-import "package:fortnite/src/client/partys.dart";
 import "package:fortnite/src/structures/party_intention.dart";
 import "package:fortnite/src/structures/ping_sent.dart";
 import "package:logging/logging.dart";
@@ -68,9 +67,6 @@ class Client {
   /// session for the account
   String session = "";
 
-  //Party Service for client
-  late Partys partys;
-
   /// session update controller
   final StreamController<Client> _sessionUpdateController =
       StreamController.broadcast();
@@ -114,9 +110,6 @@ class Client {
 
     //initialize friends profile
     friends = Friends(this);
-
-    //initialize party service
-    partys = Partys(this);
 
     if (overrideSession != "") {
       session = overrideSession;
@@ -247,6 +240,12 @@ class Client {
   }) async =>
       await send(method: "GET", url: url, overrideToken: overrideToken);
 
+  Future<dynamic> delete(
+    String url, {
+    String? overrideToken,
+  }) async =>
+      await send(method: "DELETE", url: url, overrideToken: overrideToken);
+
   /// send a post request to epic games.
   ///
   /// post request to [url] with [body].
@@ -316,25 +315,6 @@ class Client {
     return players;
   }
 
-  //invite to party
-  Future<PingSent> sendPartyPing(String userId, String accountId) async {
-    var response = await send(
-      method: "POST",
-      url: "${Endpoints().fortniteParty}/user/$userId/pings/$accountId",
-      body: {},
-    );
-    print(
-        "Endpoint: ${Endpoints().fortniteParty}/user/$userId/pings/$accountId");
-    print(response.toString());
-    if (response.toString() != "null" && response.toString() != "") {
-      // Map<String, dynamic> json = jsonDecode(response);
-
-      return PingSent.fromJson(response);
-    } else {
-      return response;
-    }
-  }
-
   //send intention
   Future<PartyIntention> sendPartyIntention(
       String userId, String accountId) async {
@@ -354,10 +334,27 @@ class Client {
   }
 
   //invite to party
-  Future<dynamic> sendPartyLookupPing(String userId) async {
+  Future<dynamic> partyInvites() async {
     var response = await send(
       method: "GET",
-      url: "${Endpoints().fortniteParty}/user/$accountId/pings/$userId/parties",
+      url: "${Endpoints().fortniteParty}/user/$accountId",
+      body: {},
+    );
+
+    if (response.toString() != "null" && response.toString() != "") {
+      // Map<String, dynamic> json = jsonDecode(response);
+
+      return response;
+    } else {
+      return response;
+    }
+  }
+
+  //invite to party
+  Future<dynamic> partyLookup(String partyId) async {
+    var response = await send(
+      method: "GET",
+      url: "${Endpoints().fortniteParty}/parties/$partyId",
       body: {},
     );
     print(response.toString());
@@ -370,36 +367,14 @@ class Client {
     }
   }
 
-  Future<dynamic> sendInvite(String userId, String partyId) async {
+  Future<dynamic> partyPromoteUser(String userId, String partyId) async {
     var response = await send(
       method: "POST",
       url:
-          "${Endpoints().fortniteParty}/parties/$partyId/invites/$userId?sendPing=true",
-      body: {
-        "urn:epic:cfg:build-id_s": "1:{0.party_version}:{0.net_cl}",
-        "urn:epic:conn:platform_s": "WIN",
-        "urn:epic:conn:type_s": "game",
-        "urn:epic:invite:platformdata_s": "",
-        "urn:epic:member:dn_s": displayName,
-      },
-    );
-    print(response.toString());
-    if (response.toString() != "null" && response.toString() != "") {
-      // Map<String, dynamic> json = jsonDecode(response);
-
-      return response;
-    } else {
-      return response;
-    }
-  }
-
-  Future<dynamic> deleteInvite(String userId, String partyId) async {
-    var response = await send(
-      method: "DELETE",
-      url: "${Endpoints().fortniteParty}/parties/$partyId/invites/$userId",
+          "${Endpoints().fortniteParty}/parties/$partyId/members/$userId/promote",
       body: {},
     );
-    print(response.toString());
+
     if (response.toString() != "null" && response.toString() != "") {
       // Map<String, dynamic> json = jsonDecode(response);
 
@@ -409,25 +384,25 @@ class Client {
     }
   }
 
-  Future<dynamic> purchaseItem(
-    String offerId,
-  ) async {
-    var result = await send(
-      method: "POST",
-      url: MCP(
-        FortniteProfile.common_core,
-        accountId: accountId,
-      ).PurchaseCatalogEntry,
-      body: {
-        "offerId":
-            "v2:/ca84387104df2144a0283f37e23832efe818e5db621572c5f63236f8bc4f3f83",
-        "purchaseQuantity": 1, // How often you want to purchase the offer
-        "currency": "MtxCurrency", // From offer
-        "currencySubType": "", // From offer
-        "expectedTotalPrice": 800, // Calculate it
-        "gameContext": "" // Leave Like this or use an Empty String
-      },
-    );
-    print(result);
-  }
+  // Future<dynamic> purchaseItem(
+  //   String offerId,
+  // ) async {
+  //   var result = await send(
+  //     method: "POST",
+  //     url: MCP(
+  //       FortniteProfile.common_core,
+  //       accountId: accountId,
+  //     ).PurchaseCatalogEntry,
+  //     body: {
+  //       "offerId":
+  //           "v2:/ca84387104df2144a0283f37e23832efe818e5db621572c5f63236f8bc4f3f83",
+  //       "purchaseQuantity": 1, // How often you want to purchase the offer
+  //       "currency": "MtxCurrency", // From offer
+  //       "currencySubType": "", // From offer
+  //       "expectedTotalPrice": 800, // Calculate it
+  //       "gameContext": "" // Leave Like this or use an Empty String
+  //     },
+  //   );
+  //   print(result);
+  // }
 }

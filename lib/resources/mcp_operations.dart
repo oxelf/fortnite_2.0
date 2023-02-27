@@ -77,6 +77,8 @@ class MCP {
     String operation = "QueryProfile",
     String overrideProfile = "",
   }) {
+    print(
+        "$_baseURL/$accountId/$route/$operation?profileId=${overrideProfile == "" ? profileId : overrideProfile}");
     return "$_baseURL/$accountId/$route/$operation?profileId=${overrideProfile == "" ? profileId : overrideProfile}";
   }
 
