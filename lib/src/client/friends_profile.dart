@@ -1,5 +1,5 @@
-import "package:fortnite/src/structures/account_id.dart";
-import "package:fortnite/src/structures/friend.dart";
+import "package:fortnite_2/src/structures/account_id.dart";
+import "package:fortnite_2/src/structures/friend.dart";
 
 import "client.dart";
 

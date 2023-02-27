@@ -2,20 +2,11 @@
 .dart_tool/
 .packages
 
-# Conventional directory for build output.
-build/
-
 # test
 test/
 
-# test
-test/
+#build files
+build
 
-# device auth
-device_auth.json
-
-# generator
-gdart.dart
-
-# docs
-doc/api
+#bug with the fortnite.dart
+lib/fortnite.dart

@@ -8,7 +8,7 @@ Add this to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-    fortnite: any
+    fortnite_2: any
 ```
 
 then run in terminal

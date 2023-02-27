@@ -1,9 +1,9 @@
 import "dart:async";
-import 'package:fortnite/resources/mcp_operations.dart';
-import "package:fortnite/src/client/events.dart";
-import "package:fortnite/src/client/friends.dart";
-import "package:fortnite/src/structures/party_intention.dart";
-import "package:fortnite/src/structures/ping_sent.dart";
+import 'package:fortnite_2/resources/mcp_operations.dart';
+import "package:fortnite_2/src/client/events.dart";
+import "package:fortnite_2/src/client/friends.dart";
+import "package:fortnite_2/src/structures/party_intention.dart";
+import "package:fortnite_2/src/structures/ping_sent.dart";
 import "package:logging/logging.dart";
 import '../../resources/fortnite_profile_ids.dart';
 import "http.dart";
@@ -357,7 +357,7 @@ class Client {
       url: "${Endpoints().fortniteParty}/parties/$partyId",
       body: {},
     );
-    print(response.toString());
+
     if (response.toString() != "null" && response.toString() != "") {
       // Map<String, dynamic> json = jsonDecode(response);
 

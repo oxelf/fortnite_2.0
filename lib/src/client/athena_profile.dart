@@ -125,7 +125,7 @@ class AthenaProfile extends McpProfile {
       method: "GET",
       url: "${Endpoints().fortniteCatalog}",
     );
-    print(res);
+
     return res;
   }
 

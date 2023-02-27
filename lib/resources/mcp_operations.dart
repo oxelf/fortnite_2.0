@@ -1,6 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
-import "package:fortnite/fortnite.dart";
+import 'package:fortnite_2/fortnite_2.dart';
 
 /// MCP operations object
 class MCP {
@@ -77,8 +77,6 @@ class MCP {
     String operation = "QueryProfile",
     String overrideProfile = "",
   }) {
-    print(
-        "$_baseURL/$accountId/$route/$operation?profileId=${overrideProfile == "" ? profileId : overrideProfile}");
     return "$_baseURL/$accountId/$route/$operation?profileId=${overrideProfile == "" ? profileId : overrideProfile}";
   }
 

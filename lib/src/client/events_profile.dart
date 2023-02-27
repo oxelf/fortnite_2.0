@@ -1,4 +1,4 @@
-import "package:fortnite/src/structures/event.dart";
+import "package:fortnite_2/src/structures/event.dart";
 
 import "client.dart";
 

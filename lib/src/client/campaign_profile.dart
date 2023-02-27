@@ -126,7 +126,6 @@ class CampaignProfile extends McpProfile {
           break;
 
         default:
-          // print(item.value["templateId"]);
           items.add(
             ProfileItem(
               client,

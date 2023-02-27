@@ -1,5 +1,5 @@
-import "package:fortnite/src/client/events_profile.dart";
-import "package:fortnite/src/structures/event.dart";
+import "package:fortnite_2/src/client/events_profile.dart";
+import "package:fortnite_2/src/structures/event.dart";
 
 import "../../resources/endpoints.dart";
 import "client.dart";
@@ -44,7 +44,7 @@ class Events extends EventsProfile {
           "${Endpoints().eventsService}/events/Fortnite/$eventId/$eventWindowId/history/$accountId",
       body: {},
     );
-    print(response.toString());
+
     if (response.toString() != "null" && response.toString() != "") {
       // Map<String, dynamic> json = jsonDecode(response);
 
@@ -79,7 +79,7 @@ class Events extends EventsProfile {
           "${Endpoints().eventsService}/events/Fortnite/download/$accountId?region=$region&platform=$platform&teamAccountIds=$accountId",
       body: {},
     );
-    print(response.toString());
+
     if (response.toString() != "null" && response.toString() != "") {
       // Map<String, dynamic> json = jsonDecode(response);
 
@@ -96,7 +96,7 @@ class Events extends EventsProfile {
       url: Endpoints().eventFlags,
       body: {},
     );
-    print(response.toString());
+
     if (response.toString() != "null" && response.toString() != "") {
       // Map<String, dynamic> json = jsonDecode(response);
 

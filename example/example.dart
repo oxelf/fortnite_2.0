@@ -1,6 +1,6 @@
 import "dart:io";
 import "dart:convert";
-import "package:fortnite/fortnite.dart";
+import 'package:fortnite_2/fortnite_2.dart';
 
 final File deviceAuthFile = File("device_auth.json");
 

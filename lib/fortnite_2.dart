@@ -8,6 +8,12 @@ export "resources/homebase_rating_keys.dart";
 export "resources/base_item_rating.dart";
 export "resources/survivor_item_rating.dart";
 
+export "src/structures/account_id.dart";
+export "src/structures/event.dart";
+export "src/structures/friend.dart";
+export "src/structures/party_intention.dart";
+export "src/structures/party_lookup.dart";
+export "src/structures/ping_sent.dart";
 export "src/structures/client_options.dart";
 export "src/structures/device_auth.dart";
 export "src/structures/external_auth.dart";
@@ -44,5 +50,9 @@ export "src/client/campaign_profile.dart";
 export "src/client/inventory_profile.dart";
 export "src/client/backpack_profile.dart";
 export "src/client/storage_profile.dart";
+export "src/client/events_profile.dart";
+export "src/client/events.dart";
+export "src/client/friends_profile.dart";
+export "src/client/friends.dart";
 
 export "package:logging/logging.dart" show Level;
