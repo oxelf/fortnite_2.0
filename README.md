@@ -111,6 +111,7 @@ Friends:
 |remove Nickname   |Remove a nickname of a friend using his account Id      |
 |get Mutuals       |Returns the friends that you and a friend have in common|  
 
+```html
 <table>
     <tr>
         <td>Function</td>
@@ -161,7 +162,7 @@ Friends:
         <td>Returns the friends that you and a friend have in common</td>
     </tr>
 </table>
-
+```
 
 You can access Friends Functions like this: 
 ```dart
